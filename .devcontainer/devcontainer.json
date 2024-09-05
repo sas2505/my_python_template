@@ -1,0 +1,54 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-dockerfile
+{
+	
+	"name": "python-base",
+
+  //if you need to build your own docker file
+    "build":{
+		"context": "..",
+		"dockerfile": "Dockerfile"
+	},
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {
+	// },
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// The usage of ${localEnv:HOME}${localEnv:USERPROFILE} is there to enable development on
+	// Windows Linux and MAcOs
+	"mounts": [
+		"source=${localEnv:HOME}${localEnv:USERPROFILE}/.gitconfig,target=/home/vscode/.gitconfig,type=bind,consistency=cached",
+		"source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
+	],
+
+  	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.vscode-pylance",
+				"njpwerner.autodocstring",
+				"ryanluker.vscode-coverage-gutters",
+				"EditorConfig.EditorConfig",
+				"gitlab.gitlab-workflow",
+				"ms-python.black-formatter",
+				"mhutchie.git-graph",
+				"ms-python.pylint"
+			],
+		"settings": {
+			// "python.pythonPath": "/usr/local/bin/python",
+			// "terminal.integrated.shell.linux": "bash"  // Specify Bash as the default shell
+			}
+		}
+	},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand" : "chmod u+x .devcontainer/post-create.sh && .devcontainer/post-create.sh", 
+
+	"remoteUser": "vscode"
+
+}
