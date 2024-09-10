@@ -9,7 +9,7 @@
             "name": "Python Debugger: main File without Arguments",
             "type": "debugpy",
             "request": "launch",
-            "program": "my_python_template/my_python_template/main.py",
+            "program": "my_python_template/my_python_template/command_line.py",
             "console": "integratedTerminal"
         },
         {
@@ -33,7 +33,7 @@
             "name": "Python Debugger: main File with Arguments",
             "type": "debugpy",
             "request": "launch",
-            "program": "my_python_template/my_python_template/main.py",
+            "program": "my_python_template/my_python_template/command_line.py",
             "console": "integratedTerminal",
             "args": [
                 "${command:pickArgs}"

@@ -30,7 +30,7 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     entry_points={
-        "console_scripts": ["sas2505=my_python_template.main:main"],
+        "console_scripts": ["sas2505=my_python_template.command_line:main"],
     },
     install_requires=[
         "click"
